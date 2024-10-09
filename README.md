@@ -69,7 +69,8 @@ OEL/
 
 2. **Add the Dataset**:
    
-   Place the dataset file `OEL_all.csv` into the `data` directory. 
+   Place the dataset file `OEL_all.csv` into the `data` directory.
+   （这个OEL_all就是我们那个每半小时的最大值的数据，我改了下名字而已）
 
 ## Model Architecture
 
