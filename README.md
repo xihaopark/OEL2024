@@ -2,6 +2,8 @@
 
 Welcome to the **OEL (Osaka University Electricity Load Forecasting)** project! This repository contains the code and resources for forecasting electricity loads using a unified Transformer-based model. Below you will find an overview of the project structure, data processing pipeline, model architecture, training and evaluation procedures, and visualization of results.
 
+(我同时放了一个代码的完整中文说明书)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
