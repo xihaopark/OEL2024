@@ -11,14 +11,14 @@ Welcome to the **OEL (Osaka University Electricity Load Forecasting)** project! 
 - [Training and Evaluation](#training-and-evaluation)
 - [Results](#results)
 - [Visualization](#visualization)
-- [Design Rationale](#design-rationale)
+- [Algorithm Design](#algorithm-design)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
-- [License](#license)
 
 ## Introduction
 
-The **OEL** project aims to accurately forecast electricity load using data from multiple channels and various temporal aggregations (daily, weekly, monthly, yearly). By unifying different input sub-tasks into a single framework, the model learns comprehensive representations that leverage the shared feature space across these tasks. This approach enhances the model's ability to generalize and perform robust predictions.
+The **OEL** project aims to accurately forecast electricity load using data from multiple channels and various temporal aggregations (daily, weekly, monthly, yearly). 
+The model learns comprehensive representations that leverage the shared feature space across these tasks by unifying different input sub-tasks into a single framework.
 
 ## Project Structure
 
@@ -42,7 +42,6 @@ OEL/
 │       └── plot_4.png
 ├── main.ipynb
 ├── README.md
-└── requirements.txt
 ```
 
 - **`main.ipynb`**: The primary notebook containing the complete workflow, including data processing, model training, evaluation, and visualization.
@@ -55,7 +54,6 @@ OEL/
   - **`predicted_values_sample.csv`**: Sample of predicted values for further inspection.
   - **`plots/`**: Sub-directory containing visualization plots for different channels.
     - **`plot_0.png`**, **`plot_1.png`**, ... : PNG files visualizing actual vs. predicted values for specific channels.
-- **`requirements.txt`**: List of Python dependencies required to run the project.
 
 ## Data Preparation
 
@@ -69,7 +67,7 @@ OEL/
 
 2. **Add the Dataset**:
    
-   Place the dataset file `OEL_all.csv` into the `data` directory. This file should contain the electricity load data with the first column representing dates in the format `YYYY/MM/DD`, followed by multiple channels with numerical load values.
+   Place the dataset file `OEL_all.csv` into the `data` directory. 
 
 ## Model Architecture
 
@@ -100,7 +98,7 @@ To retain the order information of the input sequence, positional encoding is ad
 3. **Model Construction**:
    
    - Instantiate the Transformer-based Encoder and Decoders.
-   - Define loss functions (`MSELoss`) and optimizers (`Adam`) for training.
+   - Define loss functions (`MSELoss`) for training.
 
 4. **Training Process**:
    
@@ -139,13 +137,12 @@ The project includes visualizations to assess the performance of the model acros
    
    - Located in the `prediction_results/plots/` directory.
    - Each plot (`plot_0.png`, `plot_1.png`, etc.) shows the actual and predicted electricity load values for a specific channel over the first 100 samples of the test set.
-   - These plots help in visually evaluating the accuracy and reliability of the predictions.
 
 2. **Level-specific Results**:
    
    - The level-specific CSV files (`prediction_results_A_test.csv`, etc.) provide detailed predictions and actual values for each hierarchical level, allowing for granular analysis.
 
-## Design Rationale
+## Algorithm Design
 
 The architecture and workflow of the OEL project are meticulously designed to address the complexities of electricity load forecasting through the following considerations:
 
@@ -162,7 +159,7 @@ The architecture and workflow of the OEL project are meticulously designed to ad
 3. **Shared Feature Space Across Sub-tasks**:
    
    - **Objective**: Leverage the inherent similarities in the feature space across different temporal aggregations.
-   - **Implementation**: Although each sub-task (level) has different input sequence lengths, they originate from the same dataset, ensuring that their features lie within a common feature space. This allows the reconstruction loss to effectively guide the learning of a unified representation.
+   - **Implementation**: Although each sub-task (level) has different input sequence lengths, they originate from the same dataset, ensuring their features lie within a common feature space. This allows the reconstruction loss to guide the learning of a unified representation effectively.
 
 4. **Flexible and Scalable Decoder**:
    
@@ -178,24 +175,7 @@ The architecture and workflow of the OEL project are meticulously designed to ad
    cd OEL
    ```
 
-2. **Set Up the Environment**:
-
-   Ensure you have Python installed (preferably Python 3.7 or higher). It's recommended to use a virtual environment:
-
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install Dependencies**:
-
-   Install the required Python packages:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Prepare the Data**:
+2. **Prepare the Data**:
 
    - Create the `data` directory if it doesn't exist:
 
@@ -205,7 +185,7 @@ The architecture and workflow of the OEL project are meticulously designed to ad
 
    - Place the `OEL_all.csv` dataset into the `data` directory.
 
-5. **Run the Main Notebook**:
+3. **Run the Main Notebook**:
 
    Open and run `main.ipynb` using Jupyter Notebook or JupyterLab:
 
